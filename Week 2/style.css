@@ -1,0 +1,91 @@
+body {
+    background-color: rgb(0, 87, 87);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    color:white;
+    font-size:60px;
+}
+
+h2 {
+    color: white;
+}
+
+p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    color: white;
+}
+
+p1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    color: white;
+}
+
+p2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    color: white;
+}
+
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(0, 87, 87);
+    width: 100%;
+}
+
+myDIV {
+    width: 100%;
+    padding: 0px;
+    background-color: rgb(0, FF87, 87);
+    margin-top: 20px;
+}
+
+#div1 {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 100%;
+}
+
+img:hover {
+    border: solid 1px;
+}
+
+p3{
+    font-size: 100px;
+}
+
+@media only screen and (max-width:768px){
+    div.sticky{
+         width: 100%;
+         font-size: 10px;
+    }
+    
+    h1{
+        font-size: 30px;
+    }
+
+    p,p1,p2{
+        font-size: 10px;
+    }
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+h3 {
+    color: white;
+    padding-top: 0px;
+}

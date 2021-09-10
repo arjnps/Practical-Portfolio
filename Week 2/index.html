@@ -1,0 +1,114 @@
+<html>
+<head>
+    <title>SIT120</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+    <div class="sticky">
+        <h1>Movie Management</h1>
+    </div>
+    
+    <div1 style="padding-bottom:0px">
+        <img src="img1.jpg" alt="Movie Collage">
+    </div1>
+
+    <p1>
+        <p>List of Top IMDB rated movies:</p>
+        Here's the top 10 Movies rated by IMDB in 2021:
+        <blockquote>
+            1. Zack Snyder's Justice League - 8.1.
+            <br>2. A Quiet Place Part II - 7.7.
+            <br>3. Raya And The Last Dragon - 7.4
+            <br>4. Luca - 7.6.
+            <br>5. In The Heights - 7.6.
+            <br>6. Judas And The Black Messiah - 7.5.
+            <br>7. Nobody - 7.4.
+            <br>8. Cruella - 7.4
+            <br>9. Raya And The Last Dragon - 7.4
+            <br>10. The Mauritanian - 7.4
+        </blockquote>
+        Click the button below to hide or show the list of 2020<br>
+    </p1><br>
+
+    <button onclick="myFunction()">2020</button>
+    <div id="myDIV">
+        <p2>Here's the top 10 Movies rated by IMDB in 2020:
+            <blockquote>
+                <ol>
+                    <li>Riders of Justice - 7.6</li>
+                    <li>Tenet - 7.4</li>
+                    <li>Love and Monsters (I) - 7.0</li>
+                    <li>Boss Level - 6.9</li>
+                    <li>The Hunt - 6.5</li>
+                    <li>Greenland - 6.4</li>
+                    <li>Birds of Prey - 6.1</li>
+                    <li>How I Became a Super Hero - 5.8</li>
+                    <li>Wonder Woman 1984 - 5.4</li>
+                    <li>Monster Hunter (I) - 5.3</li>
+                </ol>
+            </blockquote>
+        </p2>
+    </div>
+    <div id="todolist" class="container">
+        <h3>Movie Wish List</h1>
+
+        <div v-if="!isEditing">
+            <input type="text" v-model="todo">
+            <input type="submit" value="Add" @click="storeTodo">
+        </div>
+        <div v-else>
+            <input type="text" v-model="todo">
+            <input type="submit" value="Update" @click="updateTodo">
+        </div>
+
+        <ol>
+            <li v-for="(todo, index) in todos">
+                {{ todo }}
+                <button @click="editTodo(index, todo)">Edit</button>
+                <button @click="removeTodo(index)">Delete</button>
+            </li>
+        </ol>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script>
+        new Vue({
+            el: '#todolist',
+            
+            data: {
+                isEditing: false,
+                todo: '',
+                todos: [],
+                selectedTodo: null
+            },
+            
+            methods: {
+                storeTodo() {
+                    this.todos.push(this.todo)
+                    this.todo = ''
+                },
+
+                removeTodo(index) {
+                    this.todos.splice(index, 1)
+                },
+
+                updateTodo() {
+                    this.todos.splice(this.selectedIndex, 1, this.todo)
+                    this.todo = ''
+                    this.isEditing = false
+                },
+
+                editTodo(index, todo) {
+                    this.isEditing = true
+                    this.todo = todo
+                    this.selectedIndex = index
+                }
+            }
+        })
+    </script>
+</body>
+</html>
