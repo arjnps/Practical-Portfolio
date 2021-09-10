@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<body style="background-color: rgb(0, 87, 87);">
+
+    <p id="msg"></p>
+    <p id="dnt"></p>
+    <p id="cnd"></p>
+    <p id="cnt"></p>
+    <p>This month is:</p>
+    <p id="month"></p>
+    <button type="button" onclick="document.getElementById('dnt').innerHTML = Date()">Click Me</button><br>
+    <article>
+        Enter the first number : <input id="num1">
+        Enter the second number: <input id="num2">
+        <button onclick="addnums()">Add</button>
+    </article>
+
+    <input id="sum">
+    <p>Colours used:</p>
+    <ul id="list">
+        <li v-for="item in items" :key="item.message">
+            {{ item.message }}
+        </li>
+    </ul>
+    <script>
+        var x = "Click the button below for \"Date and Time\"";
+        document.getElementById("msg").innerHTML = x;
+        var countries = ["India", "Sri Lanka"];
+        var y = "Countries with same time zone";
+        document.getElementById("cnd").innerHTML = y;
+        document.getElementById("cnt").innerHTML = countries.join(", ");
+        var d = new Date();
+        var n = d.getMonth();
+        document.getElementById("month").innerHTML = n;
+        function addnums() {
+            var a, b, c;
+            a = Number(document.getElementById("num1").value);
+            b = Number(document.getElementById("num2").value);
+            c = a + b;
+            document.getElementById("sum").value = c;
+        }
+        var list = new Vue({
+            el: '#list',
+            data: {
+                items: [
+                    { message: 'rgb(0, 87, 87)' },
+                    { message: 'White' }
+                ]
+            }
+        })
+    </script>
+    <style>
+        p {
+            color: white;
+        }
+
+        article {
+            color: white;
+        }
+
+        ul {
+            color: white;
+        }
+    </style>
+
+
+</body>
+
+</html>
