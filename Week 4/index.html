@@ -1,0 +1,72 @@
+<html>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<body style="background-color: rgb(0, 87, 87);">
+<div id="heading" class="heading">
+    {{ message }}
+</div>
+<div id="hover">
+    <span v-bind:title="message">
+        Hover over this text to see something
+    </span>
+</div>
+<div class="heading2">Conditionals and Loops</div>
+<div class="heading3">Units of this trimester;</div>
+<div id="list">
+    <ol>
+      <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+    </ol>
+  </div>
+<script>
+    var heading = new Vue({
+    el: '#heading',
+    data: {
+        message: 'Declarative Rendering'
+    }
+    })
+
+    var hover = new Vue({
+    el: '#hover',
+    data: {
+        message: 'You loaded this page on ' + new Date().toLocaleString()
+    }
+    })
+
+    var list = new Vue({
+    el: '#list',
+    data: {
+        todos: [
+        { text: 'SIT102' },
+        { text: 'SIT103' },
+        { text: 'SIT120' },
+        { text: 'SIT201' }
+        ]
+    }
+    })
+</script>
+<style>
+    body{
+        color: white;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    div.heading{
+        font-size: 30px;
+        padding-bottom: 20px;
+        text-decoration: underline;
+    }
+
+    div.heading2{
+        font-size: 30px;
+        padding-top: 20px;
+        text-decoration: underline;
+    }
+
+    div.heading3{
+        font-size: 15px;
+        padding-top: 20px;
+    }
+</style>
+</body>
+</html>
